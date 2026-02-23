@@ -62,4 +62,11 @@ public class AttendanceController {
         return ResponseEntity.status(HttpStatus.CREATED).body(attendanceesFound);
     }
 
+    @GetMapping("attendanceByEmployee")
+    public ResponseEntity<?> attendanceByEmployee(@Valid @RequestParam Long empId){
+        Attendance attendanceesFound =  attendanceService.getAttendanceById(empId);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(attendanceesFound);
+    }
+
 }
